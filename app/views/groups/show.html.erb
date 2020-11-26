@@ -1,0 +1,97 @@
+<div class="pane">
+  <section class="section">
+    <h1><%= @group.name %>'s Secret Santa</h1>
+    <strong>Budget:</strong> <%= @group.budget %>
+    &middot;
+    <strong>Deadline:</strong> <%= @group.deadline.strftime('%d %b %Y') %>
+  </section>
+
+  <section class="section two-columns">
+    <div>
+      <h2>Ready to match?</h2>
+      <p>If you're ready for me to match up all your participants, hit that big button over there!</p>
+    </div>
+
+    <div>
+
+      <% if @group.may_match? %>
+
+      <% else %>
+        <div class="alert alert--error">
+          <strong>We can't match everyone in your secret santa group up yet</strong>
+          <% if !@group.no_invitations? %>
+              – there's still some pending invitations. Either uninvite those folks, or wait for them to respond.
+          <% elsif !@group.at_least_two_users? %>
+              – you must have at least two confirmed participants for this whole thing to work. Why not invite some more, below?
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </section>
+
+  <% if @group.invitations.none? && @group.users.one? %><div class="highlight-backdrop"></div><% end%>
+  <section class="section">
+    <% if @group.invitations.none? && @group.users.one? %>
+      <div class="highlight">
+        <div class="alert">
+          <strong>Nicely done!</strong> We've set up your secret santa – now, let's invite the first person to take part.
+        </div>
+    <% end %>
+
+    <div class="two-columns">
+      <div>
+        <h2>Invite someone</h2>
+        <p>To add some else to this secret santa, stick their email in the form.</p>
+      </div>
+
+      <div>
+        <%= form_for([@group, Invitation.new]) do |form| %>
+          <div class="field">
+            <%= form.label :email %>
+            <%= form.email_field :email, placeholder: 'e.g. santa@robocla.us'%>
+          </div>
+
+          <div class="actions">
+            <%= form.submit 'Send invitation' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <% if @group.invitations.none? && @group.users.one? %>
+      </div>
+    <% end %>
+  </section>
+
+
+  <section class="section two-columns">
+    <div>
+      <h2>Pending invitations</h2>
+      <p>We've sent an email to all of these folks asking them to join the secret santa, but they've not signed up and given us their address yet.</p>
+    </div>
+
+    <div>
+      <% @group.invitations.each do |invitation| %>
+        <div class="pane pane--compact pane--beige">
+          <strong><%= invitation.email %></strong>
+          (invited <%= time_ago_in_words(invitation.created_at) %> ago)
+        </div>
+      <% end %>
+    </div>
+  </section>
+
+  <section class="section two-columns">
+    <div>
+      <h2>Confirmed participants</h2>
+      <p>Everyone that's taking part in your secret santa, so far.</p>
+    </div>
+
+    <div>
+      <% @group.users.each do |user| %>
+        <div class="pane pane--compact pane--beige">
+          <strong><%= user.name %></strong> (<%= user.email %>)
+        </div>
+      <% end %>
+    </div>
+  </section>
+</div>

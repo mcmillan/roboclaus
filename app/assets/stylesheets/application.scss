@@ -61,7 +61,7 @@ body {
 }
 
 .footer {
-  padding: 2rem;
+  padding: 1rem 2rem 2rem;
   font-size: 18px;
   color: darken($beige, 55%);
   text-align: center;
@@ -76,6 +76,16 @@ main {
   background-color: #fff;
   padding: 2rem;
   border-radius: 1rem;
+  margin-bottom: 1rem;
+
+  &--compact {
+    padding: 1rem 1.25rem;
+    border-radius: 0.5rem;
+  }
+
+  &--beige {
+    background-color: $beige;
+  }
 }
 
 .two-columns {
@@ -86,6 +96,18 @@ main {
 
 a {
   color: $red;
+}
+
+.section {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px lighten($brown, 60%) solid;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
 }
 
 .alert {
@@ -106,4 +128,22 @@ a {
   color: lighten($brown, 25%);
   font-size: 18px;
   line-height: 24px;
+}
+
+.highlight {
+  position: relative;
+  z-index: 100;
+  background-color: #fff;
+  box-shadow: 0 0 0 3rem #fff, 0 0 0 calc(3rem + 2px) $brown;
+}
+
+.highlight-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 99;
+  backdrop-filter: blur(2px);
 }

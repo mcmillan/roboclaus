@@ -1,0 +1,32 @@
+<%= form_with(model: group, local: true) do |form| %>
+  <% if group.errors.any? %>
+    <div class="alert alert--error">
+      <strong>Oh no – something's not quite right:</strong>
+
+      <ul>
+        <% group.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, "What do you call yourselves?" %>
+    <%= form.text_field :name, autofocus: true, placeholder: 'e.g. Claus Enterprises Ltd' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :budget, "How much can each person spend?" %>
+    <%= form.text_field :budget, autofocus: true, placeholder: 'e.g. £10' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :deadline, "When's the deadline?" %>
+    <%= form.date_field :deadline, autofocus: true, placeholder: 'e.g. £10' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

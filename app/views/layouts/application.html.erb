@@ -14,7 +14,12 @@
       <%= link_to 'Roboclaus', root_url, class: 'header-logo' %>
       <nav class="header-nav">
         <% if user_signed_in? %>
-          <%= link_to 'Account', edit_user_registration_path, class: 'header-nav__link' %>
+          <% if current_user.groups.one? %>
+            <%= link_to "#{current_user.groups.first.name}'s Secret Santa", current_user.groups.first, class: 'header-nav__link' %>
+          <% elsif current_user.groups.any? %>
+            <%= link_to 'My groups', groups_path, class: 'header-nav__link' %>
+          <% end %>
+          <%= link_to 'My details', edit_user_registration_path, class: 'header-nav__link' %>
           <%= link_to 'Sign out', destroy_user_session_path, class: 'header-nav__link', data: { method: 'delete', confirm: 'Are you sure?' } %>
         <% else %>
           <%= link_to 'Sign up', new_user_registration_path, class: 'header-nav__link' %>

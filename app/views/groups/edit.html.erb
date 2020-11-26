@@ -1,0 +1,13 @@
+<div class="pane two-columns">
+  <div>
+    <h1><%= @group.name %></h1>
+
+    <p>You can edit the details of your group using this form.</p>
+
+    <div class="devise-links">
+      Alternatively, you can <%= link_to 'go back', @group %>.
+    </div>
+  </div>
+
+  <%= render 'form', group: @group %>
+</div>

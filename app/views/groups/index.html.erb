@@ -1,0 +1,19 @@
+<div class="pane two-columns">
+  <div>
+    <h1>Your groups</h1>
+    <p>This is a list of all the secret santas you're currently participating in. If you fancy, you can also <%= link_to 'create a new one', new_group_path %>.</p>
+  </div>
+
+  <div>
+    <%- @groups.each do |group| %>
+      <div class="pane pane--compact pane--beige" style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <h2><%= group.name %></h2>
+          <%= pluralize(group.users.count, 'participant') %>
+        </div>
+
+        <%= link_to 'View', group %>
+      </div>
+    <% end %>
+  </div>
+</div>

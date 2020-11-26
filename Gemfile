@@ -46,3 +46,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise", "~> 4.7"
+
+gem "friendly_id", "~> 5.4"
+
+gem "aasm", "~> 5.1"
+
+gem "after_commit_everywhere", "~> 0.1.5"
