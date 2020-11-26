@@ -100,7 +100,7 @@
         <p>Ready to match!</p>
       <% else %>
         <div class="alert alert--error">
-          <strong>We can't match everyone in your secret santa group up yet</strong>
+          <strong>We can't match everyone in your secret santa up yet</strong>
           <% if !@group.no_invitations? %>
               – there's still some pending invitations. Either uninvite those folks, or wait for them to respond.
           <% elsif !@group.at_least_two_users? %>

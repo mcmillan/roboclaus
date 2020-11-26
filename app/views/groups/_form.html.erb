@@ -22,11 +22,11 @@
   </div>
 
   <div class="field">
-    <%= form.label :deadline, "When's the deadline?" %>
+    <%= form.label :deadline, "When should everyone have received their gifts by?" %>
     <%= form.date_field :deadline, autofocus: true, placeholder: 'e.g. £10' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit group.new_record? ? 'Next' : 'Save' %>
   </div>
 <% end %>

@@ -17,7 +17,7 @@ class InvitationsController < ApplicationController
   def destroy
     @invitation.destroy!
 
-    redirect_to @group
+    redirect_to @group, notice: "#{@invitation.email} is dead to us now."
   end
 
   private

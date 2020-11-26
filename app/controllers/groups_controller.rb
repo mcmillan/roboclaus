@@ -13,7 +13,7 @@ class GroupsController < ApplicationController
   end
 
   def new
-    @group = current_user.groups.new
+    @group = Group.new
   end
 
   def edit; end
@@ -23,7 +23,7 @@ class GroupsController < ApplicationController
     @group.group_users << GroupUser.new(user: current_user)
 
     if @group.save
-      redirect_to @group, notice: 'Group was successfully created.'
+      redirect_to @group
     else
       render :new
     end

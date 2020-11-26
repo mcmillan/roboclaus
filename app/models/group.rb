@@ -4,9 +4,9 @@ class Group < ApplicationRecord
 
   friendly_id :name, use: %i[slugged finders history]
 
-  has_many :group_users
+  has_many :group_users, dependent: :destroy
   has_many :users, through: :group_users
-  has_many :invitations
+  has_many :invitations, dependent: :destroy
 
   validates :name, presence: true
   validates :budget, presence: true
