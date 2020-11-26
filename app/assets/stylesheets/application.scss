@@ -3,6 +3,8 @@
 $beige: #f6f1eb;
 $red: #b00;
 $brown: #574639;
+$pale-green: #c8f5cf;
+$green: #176d24;
 
 @import "./reset";
 @import "./fonts";
@@ -48,14 +50,9 @@ body {
 
     &__link {
       display: block;
-      color: $red;
       margin-left: 1.5rem;
       font-size: 18px;
       line-height: 1;
-
-      &:hover {
-        color: lighten($red, 10%);
-      }
     }
   }
 }
@@ -86,6 +83,11 @@ main {
   &--beige {
     background-color: $beige;
   }
+
+  &--pale-green {
+    background-color: $pale-green;
+    color: $green;
+  }
 }
 
 .two-columns {
@@ -94,8 +96,18 @@ main {
   gap: 2rem;
 }
 
+.spaced-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 a {
   color: $red;
+
+  &:hover {
+    color: lighten($red, 10%);
+  }
 }
 
 .section {
@@ -112,7 +124,7 @@ a {
 
 .alert {
   padding: 1rem;
-  background-color: $beige;
+  background-color: darken($beige, 10%);
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   margin-bottom: 1rem;

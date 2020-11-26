@@ -11,7 +11,7 @@
 
   <body>
     <header class="header">
-      <%= link_to 'Roboclaus', root_url, class: 'header-logo' %>
+      <%= link_to '🎅 Roboclaus', root_url, class: 'header-logo' %>
       <nav class="header-nav">
         <% if user_signed_in? %>
           <% if current_user.groups.one? %>
@@ -31,7 +31,7 @@
     <main>
       <% if notice %>
         <div class="alert">
-          <%= notice %>
+          <strong>Hurrah!</strong> <%= notice %>
         </div>
       <% end %>
 

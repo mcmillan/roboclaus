@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: %i[show edit update destroy]
+  before_action :load_group, except: %i[index new create]
 
   def index
     redirect_to new_group_path if current_user.groups.none?
@@ -42,9 +42,14 @@ class GroupsController < ApplicationController
     redirect_to groups_url, notice: 'Group was successfully destroyed.'
   end
 
+  def match
+    @group.match!
+    redirect_to @group
+  end
+
   private
 
-  def set_group
+  def load_group
     @group = current_user.groups.find(params[:id])
   end
 

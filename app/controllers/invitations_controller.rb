@@ -1,5 +1,6 @@
 class InvitationsController < ApplicationController
   before_action :load_group
+  before_action :load_invitation, only: %i[destroy]
 
   def show; end
 
@@ -13,10 +14,20 @@ class InvitationsController < ApplicationController
     end
   end
 
+  def destroy
+    @invitation.destroy!
+
+    redirect_to @group
+  end
+
   private
 
   def load_group
-    @group = Group.find(params[:group_id])
+    @group = current_user.groups.find(params[:group_id])
+  end
+
+  def load_invitation
+    @invitation = @group.invitations.find(params[:id])
   end
 
   def invitation_params

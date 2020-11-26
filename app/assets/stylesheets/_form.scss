@@ -24,6 +24,13 @@ input[type="submit"] {
   color: #fff;
   font-weight: bold;
   padding: 0.25rem 1rem;
+
+  &:disabled {
+    background-color: #eee;
+    color: #ccc;
+    border-color: #ddd;
+    cursor: not-allowed;
+  }
 }
 
 label {
