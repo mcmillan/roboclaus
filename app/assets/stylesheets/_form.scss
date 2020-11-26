@@ -1,0 +1,36 @@
+$beige: #f6f1eb;
+$red: #b00;
+$brown: #574639;
+input,
+select,
+textarea {
+  border: 2px $brown solid;
+  padding: 0.5rem 0.85rem;
+  border-radius: 0.25rem;
+  outline: none;
+  display: block;
+  width: 100%;
+  color: $brown;
+
+  &:focus {
+    box-shadow: 0 0 0 1px $brown;
+  }
+}
+
+button,
+input[type="button"],
+input[type="submit"] {
+  background-color: $brown;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.25rem 1rem;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+.field {
+  margin-bottom: 1.5rem;
+}

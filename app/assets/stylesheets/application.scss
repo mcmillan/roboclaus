@@ -1,0 +1,109 @@
+//= require_self
+
+$beige: #f6f1eb;
+$red: #b00;
+$brown: #574639;
+
+@import "./reset";
+@import "./fonts";
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  align-items: center;
+  background-color: $beige;
+  color: $brown;
+}
+
+@import "./type";
+@import "./form";
+
+.header {
+  color: $red;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  align-items: center;
+
+  &-logo {
+    display: block;
+    color: $red;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 32px;
+    line-height: 1;
+
+    &:hover {
+      color: lighten($red, 10%);
+    }
+  }
+
+  &-nav {
+    margin-left: auto;
+    display: flex;
+    margin-top: 3px;
+
+    &__link {
+      display: block;
+      color: $red;
+      margin-left: 1.5rem;
+      font-size: 18px;
+      line-height: 1;
+
+      &:hover {
+        color: lighten($red, 10%);
+      }
+    }
+  }
+}
+
+.footer {
+  padding: 2rem;
+  font-size: 18px;
+  color: darken($beige, 55%);
+  text-align: center;
+}
+
+main {
+  width: 100%;
+  max-width: 1024px;
+}
+
+.pane {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.two-columns {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+}
+
+a {
+  color: $red;
+}
+
+.alert {
+  padding: 1rem;
+  background-color: $beige;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+
+  &--error {
+    background-color: $red;
+    color: #fff;
+  }
+}
+
+.devise-links {
+  margin-top: 1rem;
+  color: lighten($brown, 25%);
+  font-size: 18px;
+  line-height: 24px;
+}

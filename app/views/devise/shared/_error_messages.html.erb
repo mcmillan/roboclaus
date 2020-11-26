@@ -1,0 +1,12 @@
+<% if resource.errors.any? %>
+  <div class="alert alert--error">
+    <strong>
+      Uh oh – looks like there's a couple of issues:
+    </strong>
+    <ul>
+      <% resource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

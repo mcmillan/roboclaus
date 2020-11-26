@@ -1,0 +1,44 @@
+<div class="pane two-columns">
+  <div>
+    <h1>Sign up</h1>
+
+    <p style="margin-bottom: 1rem;">Let's get our Christmas on! Tell us some more about <strong>you</strong> using that form over there.</p>
+
+    <p>We'll ask you more questions about <strong>your secret santa group</strong> in the next step.</p>
+
+    <%= render "devise/shared/links" %>
+  </div>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.label :name, "What's your name?" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: 'R. Claus' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email, "What's your email?" %>
+      <%= f.email_field :email, autocomplete: "email", placeholder: 'santa@robocla.us' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :address, "Where's Santa sending your presents?" %>
+      <%= f.text_area :address, autocomplete: "address", placeholder: "123 Christmas Road\nSantaville\nLapland\nW1A 1AA", rows: 4 %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password, "Choose a password (minimum 8 characters)" %>
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation, "Re-enter your password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up" %>
+    </div>
+  <% end %>
+</div>

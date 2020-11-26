@@ -1,0 +1,21 @@
+<div class="pane two-columns">
+  <div>
+    <h1>Passwordless!</h1>
+    <p>Forgotten your password? Happens to the best of us. Just pop your email in the form and we'll send you out a link to reset it.</p>
+    <%= render "devise/shared/links" %>
+  </div>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Send me password reset instructions" %>
+    </div>
+  <% end %>
+
+</div>

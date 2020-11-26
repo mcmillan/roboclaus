@@ -10,6 +10,38 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="header">
+      <%= link_to 'Roboclaus', root_url, class: 'header-logo' %>
+      <nav class="header-nav">
+        <% if user_signed_in? %>
+          <%= link_to 'Account', edit_user_registration_path, class: 'header-nav__link' %>
+          <%= link_to 'Sign out', destroy_user_session_path, class: 'header-nav__link', data: { method: 'delete', confirm: 'Are you sure?' } %>
+        <% else %>
+          <%= link_to 'Sign up', new_user_registration_path, class: 'header-nav__link' %>
+          <%= link_to 'Sign in', new_user_session_path, class: 'header-nav__link' %>
+        <% end %>
+
+      </nav>
+    </header>
+    <main>
+      <% if notice %>
+        <div class="alert">
+          <%= notice %>
+        </div>
+      <% end %>
+
+      <% if alert %>
+        <div class="alert alert--error">
+          <strong>Oh no!</strong> <%= alert %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </main>
+    <footer class="footer">
+      Stuck? Email <%= mail_to 'help@robocla.us' %>
+      <br />
+      &copy; 2020
+    </footer>
   </body>
 </html>

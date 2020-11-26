@@ -1,0 +1,38 @@
+body,
+input,
+select,
+textarea,
+button {
+  font-family: "Calibre";
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-size: 20px;
+  line-height: 28px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 52px;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+h3 {
+  font-size: 18px;
+  line-height: 24px;
+}
