@@ -38,5 +38,7 @@ module Roboclaus
     config.action_mailer.postmark_settings = {
       api_token: Rails.application.credentials.postmark[:api_token]
     }
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end
