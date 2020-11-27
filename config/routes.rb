@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  get 'group_users/destroy'
+  authenticate :user, ->(u) { u.admin? } do
+    mount Sidekiq::Web => '/admin/sidekiq'
+  end
+
   devise_for :users
 
   resources :groups do
