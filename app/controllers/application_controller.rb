@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
 
   def reject_non_admins
     return unless Rails.env.production?
+    return unless ENV['REJECT_NON_ADMINS'] == 'true'
     return if user_signed_in? && current_user.admin?
     return if controller_path == 'devise/sessions'
 
