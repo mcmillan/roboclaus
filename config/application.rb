@@ -33,5 +33,10 @@ module Roboclaus
     config.generators.system_tests = nil
 
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+
+    config.action_mailer.delivery_method = :postmark
+    config.action_mailer.postmark_settings = {
+      api_token: Rails.application.credentials.postmark[:api_token]
+    }
   end
 end
