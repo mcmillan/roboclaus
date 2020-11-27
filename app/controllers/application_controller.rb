@@ -15,6 +15,6 @@ class ApplicationController < ActionController::Base
     return if user_signed_in? && current_user.admin?
     return if controller_path == 'devise/sessions'
 
-    head :forbidden
+    head :service_unavailable
   end
 end
