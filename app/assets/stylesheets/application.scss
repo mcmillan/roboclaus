@@ -58,10 +58,17 @@ body {
 }
 
 .footer {
+  width: 100%;
+  max-width: 1024px;
   padding: 1rem 2rem 2rem;
   font-size: 18px;
   color: darken($beige, 55%);
-  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  :last-child {
+    text-align: right;
+  }
 }
 
 main {

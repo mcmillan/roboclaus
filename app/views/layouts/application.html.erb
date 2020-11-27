@@ -44,9 +44,19 @@
       <%= yield %>
     </main>
     <footer class="footer">
-      Stuck? Email <%= mail_to 'help@robocla.us' %>
-      <br />
-      &copy; 2020
+      <div>
+        Stuck? Email <%= mail_to 'hohoho@robocla.us' %>
+        <br />
+        &copy; 2020
+      </div>
+
+      <div>
+        <%= link_to 'GitHub', 'https://github.com/mcmillan/roboclaus', target: '_blank' %>
+        &middot;
+        <%= link_to 'Terms', terms_path, data: { turbolinks: false } %>
+        &middot;
+        <%= link_to 'Privacy', privacy_path, data: { turbolinks: false } %>
+      </div>
     </footer>
   </body>
 </html>

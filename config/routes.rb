@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/terms' => 'static#terms'
+  get '/privacy' => 'static#privacy'
   root to: 'landing#index'
 end
