@@ -52,3 +52,5 @@ gem "friendly_id", "~> 5.4"
 gem "aasm", "~> 5.1"
 
 gem "after_commit_everywhere", "~> 0.1.5"
+
+gem "postmark-rails", "~> 0.20.0"
