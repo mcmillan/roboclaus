@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_devise_parameter_sanitizer, if: :devise_controller?
-  before_action :reject_non_admins
+  http_basic_authenticate_with name: 'christmas', password: 'christmaschristmas', if: :requires_basic_auth?
 
   private
 
@@ -10,12 +10,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: %i[name address])
   end
 
-  def reject_non_admins
-    return unless Rails.env.production?
-    return unless ENV['REJECT_NON_ADMINS'] == 'true'
-    return if user_signed_in? && current_user.admin?
-    return if controller_path == 'devise/sessions'
+  def requires_basic_auth?
+    return false unless Rails.env.production?
+    return false unless ENV['REQUIRE_BASIC_AUTH_FOR_NON_ADMINS'] == 'true'
+    return false if user_signed_in? && current_user.admin?
 
-    head :service_unavailable
+    true
   end
 end
