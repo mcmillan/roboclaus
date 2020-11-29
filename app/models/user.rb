@@ -9,4 +9,24 @@ class User < ApplicationRecord
 
   has_many :group_users
   has_many :groups, through: :group_users
+
+  attr_accessor :invitation
+
+  after_create do
+    invitation&.destroy!
+  end
+
+  def self.new_with_session(params, session)
+    new(params).tap do |user|
+      next unless session[:invitation_token]
+
+      invitation = Invitation.find_by(token: session[:invitation_token])
+
+      next unless invitation
+
+      user.invitation = invitation
+      user.email = params[:email] || invitation.email
+      user.group_users << GroupUser.new(group: invitation.group)
+    end
+  end
 end

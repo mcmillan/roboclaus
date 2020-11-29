@@ -1,10 +1,16 @@
 <div class="pane two-columns">
   <div>
-    <h1>Sign up</h1>
+    <% if resource.group_users.any? %>
+      <h1>Join <%= resource.group_users.first.group.name %>'s secret santa</h1>
+    <% else %>
+      <h1>Sign up</h1>
+    <% end %>
 
     <p style="margin-bottom: 1rem;">Let's get our Christmas on! Tell us some more about <strong>you</strong> using that form over there.</p>
 
-    <p>We'll ask you more questions about <strong>your secret santa</strong> in the next step.</p>
+    <% unless resource.group_users.any? %>
+      <p>We'll ask you more questions about <strong>your secret santa</strong> in the next step.</p>
+    <% end %>
 
     <%= render "devise/shared/links" %>
   </div>

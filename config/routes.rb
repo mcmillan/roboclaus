@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources :invitations, only: %i[show]
+
   resources :groups do
     resources :invitations, only: %i[create destroy]
     resources :group_users, path: :users, only: %i[destroy]
