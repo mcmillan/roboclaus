@@ -266,6 +266,16 @@ ol {
       padding-top: 0;
     }
 
+    > .pane {
+      > p {
+        margin-bottom: 1rem;
+      }
+
+      > .pane {
+        margin-bottom: 2rem;
+      }
+    }
+
     &::before {
       content: " ";
       border-top: 25px transparent solid;
