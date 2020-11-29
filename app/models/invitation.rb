@@ -1,7 +1,7 @@
 class Invitation < ApplicationRecord
   belongs_to :group
 
-  validates :email, presence: true, format: /@/, uniqueness: true
+  validates :email, presence: true, format: /@/, uniqueness: { scope: :group, case_sensitive: false }
 
   validate do
     errors.add(:email, 'is already participating') if group&.users&.exists?(email: email)
