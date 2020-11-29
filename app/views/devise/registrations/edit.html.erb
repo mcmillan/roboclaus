@@ -5,7 +5,11 @@
     <p>If you want to update anything about your Roboclaus account, just fill the form to the right.</p>
 
     <div class="devise-links">
-      Not feeling this Christmas thing any more? Click <%= link_to "here", registration_path(resource_name), data: { confirm: "Are you sure? This is permanent, and will result in your secret santa being reassigned." }, method: :delete %> to delete your account.
+      <% if resource.groups.matched.any? %>
+        If you want to delete your account, please email <%= mail_to 'hohoho@robocla.us' %>.
+      <% else %>
+        Not feeling this Christmas thing any more? Click <%= link_to "here", registration_path(resource_name), data: { confirm: "Are you sure? This is permanent, and will result in your secret santa being reassigned." }, method: :delete %> to delete your account.
+      <% end %>
     </div>
   </div>
 

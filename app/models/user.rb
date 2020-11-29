@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :address, presence: true
 
-  has_many :group_users
+  has_many :group_users, dependent: :destroy
   has_many :groups, through: :group_users
 
   attr_accessor :invitation
