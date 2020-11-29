@@ -38,6 +38,7 @@ module Roboclaus
     config.action_mailer.postmark_settings = {
       api_token: Rails.application.credentials.postmark[:api_token]
     }
+    config.action_mailer.default_url_options = { host: 'robocla.us', protocol: 'https' }
 
     config.active_job.queue_adapter = :sidekiq
   end

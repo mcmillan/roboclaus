@@ -8,10 +8,15 @@ class Invitation < ApplicationRecord
   end
 
   before_create :generate_token
+  after_create :send_invite_email
 
   private
 
   def generate_token
     self.token = SecureRandom.alphanumeric(32)
+  end
+
+  def send_invite_email
+    InvitationMailer.with(invitation: self).invite.deliver_later
   end
 end

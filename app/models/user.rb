@@ -27,7 +27,7 @@ class User < ApplicationRecord
 
       user.invitation = invitation
       user.email = params[:email] || invitation.email
-      user.group_users << GroupUser.new(group: invitation.group)
+      user.group_users << user.group_users.new(group: invitation.group)
     end
   end
 end

@@ -25,7 +25,7 @@ class Group < ApplicationRecord
     state :pending, initial: true
     state :matched
 
-    event :match, guards: %i[no_invitations? at_least_two_users?], before: :perform_matching do
+    event :match, guards: %i[no_invitations? at_least_two_users?], before: :perform_matching, after: :send_match_emails do
       transitions from: :pending, to: :matched
     end
 
@@ -63,6 +63,12 @@ class Group < ApplicationRecord
       end
 
       raise 'not all candidates matched' if candidates.any?
+    end
+  end
+
+  def send_match_emails
+    group_users.each do |group_user|
+      GroupUserMailer.with(group_user: group_user).match.deliver_later
     end
   end
 

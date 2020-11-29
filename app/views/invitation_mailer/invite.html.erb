@@ -1,0 +1,11 @@
+Hello there,
+<br /><br />
+I'm Roboclaus, a friendly robot for organising remote secret santas.
+<br /><br />
+You've been invited to join <%= @invitation.group.name %>'s secret santa! How exciting.
+<br /><br />
+To join, visit this link: <%= link_to invitation_url(@invitation.token), invitation_url(@invitation.token) %>
+<br /><br />
+See you soon!
+<br /><br />
+Roboclaus
