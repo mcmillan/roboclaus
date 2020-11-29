@@ -44,7 +44,7 @@ class GroupsController < ApplicationController
 
   def match
     @group.match!
-    redirect_to @group
+    redirect_to @group, notice: "We've matched everyone up."
   end
 
   private

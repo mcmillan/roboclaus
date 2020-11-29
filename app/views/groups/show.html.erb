@@ -129,7 +129,7 @@
 
       <div>
         <% if @group.may_match? %>
-          <p>Ready to match!</p>
+          <div class="alert">When you press the button below, we'll email everyone in your group with who their match is. You won't be able to add or remove anyone after we've done that, so make sure you're happy with everything first!</div>
         <% else %>
           <div class="alert alert--error">
             <strong>We can't match everyone in your secret santa up yet</strong>
@@ -141,7 +141,7 @@
           </div>
         <% end %>
 
-        <%= button_to "Match 'em up!", match_group_path(@group), disabled: !@group.may_match? %>
+        <%= button_to "Match 'em up!", match_group_path(@group), disabled: !@group.may_match?, class: 'match-button' %>
       </div>
     </section>
   <% end %>

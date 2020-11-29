@@ -28,6 +28,10 @@ class Group < ApplicationRecord
     event :match, guards: %i[no_invitations? at_least_two_users?], before: :perform_matching do
       transitions from: :pending, to: :matched
     end
+
+    event :unmatch, before: :perform_unmatching do
+      transitions from: :matched, to: :pending
+    end
   end
 
   def should_generate_new_friendly_id?
@@ -60,5 +64,9 @@ class Group < ApplicationRecord
 
       raise 'not all candidates matched' if candidates.any?
     end
+  end
+
+  def perform_unmatching
+    group_users.update_all(recipient_id: nil)
   end
 end

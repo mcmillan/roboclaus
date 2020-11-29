@@ -1,6 +1,5 @@
-$beige: #f6f1eb;
-$red: #b00;
-$brown: #574639;
+@import "colours";
+
 input,
 select,
 textarea {
@@ -20,17 +19,26 @@ textarea {
 button,
 input[type="button"],
 input[type="submit"] {
-  background-color: $brown;
+  background-image: linear-gradient(lighten($brown, 5%), $brown);
+  border-color: darken($brown, 5%);
   color: #fff;
   font-weight: bold;
   padding: 0.25rem 1rem;
+  cursor: pointer;
 
   &:disabled {
     background-color: #eee;
+    background-image: none;
     color: #ccc;
     border-color: #ddd;
     cursor: not-allowed;
   }
+}
+
+button.match-button:enabled,
+input[type="submit"].match-button:enabled {
+  background-image: linear-gradient(lighten($green, 2.5%), $green);
+  border-color: darken($green, 5%);
 }
 
 label {

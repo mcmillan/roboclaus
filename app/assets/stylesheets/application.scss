@@ -1,13 +1,8 @@
 //= require_self
 
-$beige: #f6f1eb;
-$red: #b00;
-$brown: #574639;
-$pale-green: #c8f5cf;
-$green: #176d24;
-
-@import "./reset";
-@import "./fonts";
+@import "reset";
+@import "colours";
+@import "fonts";
 
 body {
   display: flex;
@@ -19,8 +14,8 @@ body {
   color: $brown;
 }
 
-@import "./type";
-@import "./form";
+@import "type";
+@import "form";
 
 .header {
   color: $red;
