@@ -8,7 +8,7 @@ class GroupUserMailer < ApplicationMailer
     mail(
       to: @user.email,
       subject: '🥁 Your secret santa is...',
-      reply_to: "#{@group.slug}@santa.robocla.us"
+      reply_to: "#{@group.slug}+santa@santa.robocla.us"
     )
   end
 end

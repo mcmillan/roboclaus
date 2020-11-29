@@ -16,7 +16,9 @@
           <li>You give me the emails of all the folks who are participating</li>
           <li>I'll email them and ask them to give me their home address</li>
           <li>When you're ready, I'll match everyone up, and let everyone know who they're sending a present to, including that person's address</li>
-          <li>If someone's stuck for ideas, they can email a question to me and I'll pass it on anonymously to their recipient</li>
+          <% if ENV['ANONYMOUS_MESSAGING_ENABLED'] %>
+            <li>If someone's stuck for ideas, they can email a question to me and I'll pass it on anonymously to their recipient</li>
+          <% end %>
         </ol>
       </div>
 
