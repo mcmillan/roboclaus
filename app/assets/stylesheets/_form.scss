@@ -26,6 +26,13 @@ input[type="submit"] {
   padding: 0.25rem 1rem;
   cursor: pointer;
 
+  &:hover {
+    background-image: linear-gradient(
+      lighten($brown, 10%),
+      lighten($brown, 5%)
+    );
+  }
+
   &:disabled {
     background-color: #eee;
     background-image: none;
@@ -33,12 +40,18 @@ input[type="submit"] {
     border-color: #ddd;
     cursor: not-allowed;
   }
-}
 
-button.match-button:enabled,
-input[type="submit"].match-button:enabled {
-  background-image: linear-gradient(lighten($green, 2.5%), $green);
-  border-color: darken($green, 5%);
+  &.match-button:enabled {
+    background-image: linear-gradient(lighten($green, 2.5%), $green);
+    border-color: darken($green, 5%);
+
+    &:hover {
+      background-image: linear-gradient(
+        lighten($green, 7.5%),
+        lighten($green, 2.5%)
+      );
+    }
+  }
 }
 
 label {
