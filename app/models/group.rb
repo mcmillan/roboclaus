@@ -13,7 +13,9 @@ class Group < ApplicationRecord
   validates :deadline, presence: true
   validate do
     errors.add(:deadline, 'must be in the future') if deadline.present? && deadline < Date.today
-    errors.add(:deadline, 'must be before Christmas') if deadline.present? && deadline >= Date.new(2020, 12, 25)
+    if deadline.present? && deadline >= Date.new(2020, 12, 25)
+      errors.add(:deadline, 'must be before Christmas this year')
+    end
   end
 
   aasm(
