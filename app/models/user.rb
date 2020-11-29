@@ -23,6 +23,7 @@ class User < ApplicationRecord
       invitation = Invitation.find_by(token: session[:invitation_token])
 
       next unless invitation
+      next if invitation.group.matched?
 
       user.invitation = invitation
       user.email = params[:email] || invitation.email

@@ -6,10 +6,12 @@ class InvitationsController < ApplicationController
   def show
     @invitation = Invitation.find_by!(token: params[:id])
 
-    if user_signed_in? && current_user.email == @invitation.email
+    if user_signed_in? && current_user.email == @invitation.email && @invitation.group.matched?
       @invitation.group.group_users << GroupUser.new(user: current_user)
       @invitation.destroy!
       redirect_to @invitation.group, notice: 'Secret santa joined successfully!'
+    elsif @invitation.group.matched?
+      redirect_to root_path, alert: "That secret santa's already been matched up, so you can't join it."
     elsif user_signed_in?
       redirect_to groups_path, alert: 'The email attached to that invitation does not match your email address.'
     else

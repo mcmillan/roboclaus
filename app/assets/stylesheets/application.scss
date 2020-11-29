@@ -103,6 +103,12 @@ main {
   gap: 2rem;
 }
 
+.three-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
 .spaced-flex {
   display: flex;
   justify-content: space-between;

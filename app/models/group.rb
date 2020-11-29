@@ -25,7 +25,7 @@ class Group < ApplicationRecord
     state :pending, initial: true
     state :matched
 
-    event :match, guards: %i[no_invitations? at_least_two_users?] do
+    event :match, guards: %i[no_invitations? at_least_two_users?], before: :perform_matching do
       transitions from: :pending, to: :matched
     end
   end
@@ -42,7 +42,23 @@ class Group < ApplicationRecord
     users.count >= 2
   end
 
+  def recipient_for(user)
+    group_users.find_by(user: user).recipient
+  end
+
   private
 
-  def perform_matching; end
+  def perform_matching
+    transaction do
+      candidates = users.shuffle
+
+      group_users.each do |group_user|
+        recipient = candidates.excluding(group_user.user).sample
+        group_user.update!(recipient: recipient)
+        candidates.delete(recipient)
+      end
+
+      raise 'not all candidates matched' if candidates.any?
+    end
+  end
 end
