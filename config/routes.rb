@@ -18,7 +18,9 @@ Rails.application.routes.draw do
 
   get '/terms', to: 'static#terms'
   get '/privacy', to: 'static#privacy'
-  get '404', to: 'static#not_found'
+  %w[404 422 500].each do |code|
+    get code, to: 'static#error', code: code
+  end
 
   root to: 'landing#index'
 end
