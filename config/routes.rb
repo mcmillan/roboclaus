@@ -16,7 +16,9 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/terms' => 'static#terms'
-  get '/privacy' => 'static#privacy'
+  get '/terms', to: 'static#terms'
+  get '/privacy', to: 'static#privacy'
+  get '404', to: 'static#not_found'
+
   root to: 'landing#index'
 end

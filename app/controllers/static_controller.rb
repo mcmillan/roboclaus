@@ -6,4 +6,7 @@ class StaticController < ApplicationController
 
   def privacy
   end
+
+  def not_found
+  end
 end
