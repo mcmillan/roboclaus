@@ -4,6 +4,12 @@
 @import "colours";
 @import "fonts";
 
+@mixin mobile {
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -24,6 +30,11 @@ body {
   max-width: 1024px;
   display: flex;
   align-items: center;
+
+  @include mobile {
+    flex-direction: column;
+    padding: 1rem;
+  }
 
   &-logo {
     display: block;
@@ -49,6 +60,19 @@ body {
       font-size: 18px;
       line-height: 1;
     }
+
+    @include mobile {
+      margin-left: 0;
+      margin-top: 0.5rem;
+
+      &__link {
+        margin-left: 1rem;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
   }
 }
 
@@ -63,6 +87,19 @@ body {
 
   :last-child {
     text-align: right;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+
+    > *,
+    > :last-child {
+      text-align: center;
+    }
+
+    > :first-child {
+      grid-row: 2;
+    }
   }
 }
 
@@ -90,18 +127,31 @@ main {
     background-color: $pale-green;
     color: $green;
   }
+
+  @include mobile {
+    border-radius: 0;
+    padding: 1rem;
+  }
 }
 
 .two-columns {
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: 2rem;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
 }
 
 .three-columns {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
 }
 
 .spaced-flex {
@@ -154,6 +204,10 @@ ol {
     background-color: $red;
     color: #fff;
   }
+
+  @include mobile {
+    border-radius: 0;
+  }
 }
 
 .devise-links {
@@ -179,4 +233,59 @@ ol {
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 99;
   backdrop-filter: blur(2px);
+}
+
+.landing {
+  margin: 1rem 0;
+
+  @include mobile {
+    margin: 0;
+  }
+
+  &__image {
+    @include mobile {
+      grid-row: 2;
+    }
+
+    img {
+      display: block;
+      margin-bottom: 1rem;
+
+      @include mobile {
+        width: 50%;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__content {
+    padding-top: 50px;
+    position: relative;
+
+    @include mobile {
+      padding-top: 0;
+    }
+
+    &::before {
+      content: " ";
+      border-top: 25px transparent solid;
+      border-right: 25px #fff solid;
+      border-bottom: 25px transparent solid;
+      position: absolute;
+      top: 200px;
+      left: -25px;
+      width: 0;
+      height: 0;
+
+      @include mobile {
+        border-top: 25px #fff solid;
+        border-left: 25px transparent solid;
+        border-right: 25px transparent solid;
+        top: initial;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 32px);
+      }
+    }
+  }
 }

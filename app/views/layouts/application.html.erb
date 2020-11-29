@@ -5,6 +5,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -15,7 +18,7 @@
       <nav class="header-nav">
         <% if user_signed_in? %>
           <% if current_user.groups.one? %>
-            <%= link_to "#{current_user.groups.first.name}'s Secret Santa", current_user.groups.first, class: 'header-nav__link' %>
+            <%= link_to "Your secret santa", current_user.groups.first, class: 'header-nav__link' %>
           <% elsif current_user.groups.any? %>
             <%= link_to 'My groups', groups_path, class: 'header-nav__link' %>
           <% end %>
