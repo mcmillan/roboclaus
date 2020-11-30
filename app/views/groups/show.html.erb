@@ -29,7 +29,7 @@
     <%- if ENV['ANONYMOUS_MESSAGING_ENABLED'] %>
     <section class="section">
       <h2>Can't decide what to get them?</h2>
-      <p>If you're not sure what to get your match, or if you need to ask them a question (like if they have any dietary requirements, or a long-term phobia of bees), email <%= mail_to "#{@group.slug}+santa@secret.robocla.us" %> and I'll forward your message anonymously to <%= @recipient.name %>.</p>
+      <p>If you're not sure what to get your match, or if you need to ask them a question (like if they have any dietary requirements, or a long-term phobia of bees), email <%= mail_to "#{@group.slug}@secret.robocla.us" %> and I'll forward your message anonymously to <%= @recipient.name %>.</p>
     </section>
     <% end %>
   <% else %>
