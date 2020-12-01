@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+    resources :invitations
+    resources :groups
+    resources :group_users, except: %i[index]
+    root to: 'users#index'
+  end
+
   authenticate :user, ->(u) { u.admin? } do
     mount Sidekiq::Web => '/admin/sidekiq'
   end
