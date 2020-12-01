@@ -10,7 +10,7 @@ Their address is:
 You need to make sure that they receive their gift before <strong><%= @group.deadline.strftime('%d %B %Y') %></strong> (that's <%= distance_of_time_in_words(@group.deadline, DateTime.now) %> from now). Please don't spend more than <strong><%= @group.budget %></strong> on their gift.
 <%- if ENV['ANONYMOUS_MESSAGING_ENABLED'] %>
 <br /><br />
-If you're not sure what to get your match, or if you need to ask them a question (like if they have any dietary requirements, or a long-term phobia of bees), just reply to this email and I'll forward your message to <%= @recipient.name %>.
+If you're not sure what to get your match, or if you need to ask them a question (like if they have any dietary requirements, or a long-term phobia of bees), just reply to this email and I'll forward your message to <%= @recipient.name %>. <strong>Make sure you don't include your email signature if you don't want them to know who you are.</strong>
 <% end %>
 <br /><br />
 See you soon!
