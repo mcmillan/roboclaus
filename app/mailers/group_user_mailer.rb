@@ -20,7 +20,7 @@ class GroupUserMailer < ApplicationMailer
     @context = context
     @message = message
 
-    to = @context == :recipient ? @recipient.email : @user.email
+    to = @context == :recipient ? @recipient.email : @group.group_users.find_by!(recipient_id: @user.id).user.email
     subject = "🤫 A secret message from your #{@context == :recipient ? 'santa' : 'recipient'}"
     reply_to = @context == :recipient ? "#{@group.slug}+recipient@secret.robocla.us" : "#{@group.slug}@secret.robocla.us"
 
