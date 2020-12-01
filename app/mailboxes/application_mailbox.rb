@@ -1,3 +1,3 @@
 class ApplicationMailbox < ActionMailbox::Base
-  # routing /something/i => :somewhere
+  routing /^.*(\+recipient)?@secret.robocla.us$/i => :matches
 end

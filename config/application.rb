@@ -40,7 +40,5 @@ module Roboclaus
       http_ssl_version: :TLSv1_2
     }
     config.action_mailer.default_url_options = { host: 'robocla.us', protocol: 'https' }
-
-    config.active_job.queue_adapter = :sidekiq
   end
 end

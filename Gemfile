@@ -61,3 +61,5 @@ gem "sidekiq", "~> 6.1"
 gem "aws-sdk-s3", "~> 1.85"
 
 gem "rack-canonical-host", "~> 1.0"
+
+gem "email_reply_parser", "~> 0.5.10"

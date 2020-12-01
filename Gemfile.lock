@@ -93,6 +93,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    email_reply_parser (0.5.10)
     erubi (1.10.0)
     ffi (1.13.1)
     friendly_id (5.4.1)
@@ -239,6 +240,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   devise (~> 4.7)
+  email_reply_parser (~> 0.5.10)
   friendly_id (~> 5.4)
   jbuilder (~> 2.7)
   letter_opener
