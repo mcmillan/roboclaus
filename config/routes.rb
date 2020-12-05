@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   namespace :internal do
     resources :webhooks, only: [] do
       collection do
-        get :twilio
+        post :twilio
       end
     end
   end
