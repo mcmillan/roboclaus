@@ -1,4 +1,5 @@
-class Internal::WebhooksController < ActionController::API
+class Internal::WebhooksController < ActionController::Base
+  skip_before_action :verify_authenticity_token
   http_basic_authenticate_with(
     name: Rails.application.credentials.webhooks[:name],
     password: Rails.application.credentials.webhooks[:password]
