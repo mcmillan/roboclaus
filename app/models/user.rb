@@ -13,7 +13,7 @@ class User < ApplicationRecord
   attr_accessor :invitation
 
   after_create do
-    invitation&.destroy!
+    invitation&.claim!
   end
 
   def self.new_with_session(params, session)
