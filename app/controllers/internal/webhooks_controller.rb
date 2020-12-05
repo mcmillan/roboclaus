@@ -5,24 +5,33 @@ class Internal::WebhooksController < ActionController::API
     if blocked && params[:Body].to_s.strip.downcase == 'start'
       BlockedPhoneNumber.where(phone_number: params[:To]).destroy_all
 
-      return render xml: Twilio::TwiML::MessagingResponse.new do |r|
+      twiml = Twilio::TwiML::MessagingResponse.new do |r|
         r.message body: '🎅 Welcome back to Roboclaus!'
       end
+
+      return render xml: twiml
     elsif blocked
-      return render xml: Twilio::TwiML::MessagingResponse.new do |r|
+      twiml = Twilio::TwiML::MessagingResponse.new do |r|
         r.message body: "You've opted out of Roboclaus. Reply START to receive messages from us again."
       end
+
+      return render xml: twiml
     end
 
     if params[:Body].to_s.strip.downcase == 'stop'
       BlockedPhoneNumber.create(phone_number: params[:To])
-      return render xml: Twilio::TwiML::MessagingResponse.new do |r|
+
+      twiml = Twilio::TwiML::MessagingResponse.new do |r|
         r.message body: "You'll no longer be sent any messages by Roboclaus."
       end
+
+      return render xml: twiml
     end
 
-    render xml: Twilio::TwiML::MessagingResponse.new do |r|
+    twiml = Twilio::TwiML::MessagingResponse.new do |r|
       r.message body: 'No longer feeling the whole Christmas thing? Reply STOP to this message.'
     end
+
+    render xml: twiml
   end
 end
