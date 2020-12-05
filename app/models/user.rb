@@ -20,7 +20,7 @@ class User < ApplicationRecord
     new(params).tap do |user|
       next unless session[:invitation_token]
 
-      invitation = Invitation.find_by(token: session[:invitation_token])
+      invitation = Invitation.sent.find_by(token: session[:invitation_token])
 
       next unless invitation
       next if invitation.group.matched?
