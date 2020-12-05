@@ -1,9 +1,9 @@
 class Internal::WebhooksController < ActionController::API
   def twilio
-    blocked = BlockedPhoneNumber.exists?(phone_number: params[:To])
+    blocked = BlockedPhoneNumber.exists?(phone_number: params[:From])
 
     if blocked && params[:Body].to_s.strip.downcase == 'start'
-      BlockedPhoneNumber.where(phone_number: params[:To]).destroy_all
+      BlockedPhoneNumber.where(phone_number: params[:From]).destroy_all
 
       twiml = Twilio::TwiML::MessagingResponse.new do |r|
         r.message body: '🎅 Welcome back to Roboclaus!'
@@ -19,7 +19,7 @@ class Internal::WebhooksController < ActionController::API
     end
 
     if params[:Body].to_s.strip.downcase == 'stop'
-      BlockedPhoneNumber.create(phone_number: params[:To])
+      BlockedPhoneNumber.create(phone_number: params[:From])
 
       twiml = Twilio::TwiML::MessagingResponse.new do |r|
         r.message body: "You'll no longer be sent any messages by Roboclaus."
