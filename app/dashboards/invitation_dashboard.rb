@@ -9,6 +9,7 @@ class InvitationDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     group: Field::BelongsTo,
+    state: Field::String,
     id: Field::Number,
     email: Field::String,
     token: Field::String,
@@ -24,6 +25,7 @@ class InvitationDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     email
     group
+    state
     created_at
   ].freeze
 
@@ -32,6 +34,7 @@ class InvitationDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     email
     group
+    state
     token
     created_at
     updated_at

@@ -8,7 +8,7 @@ class InvitationsController < ApplicationController
 
     if user_signed_in? && current_user.email == @invitation.email && !@invitation.group.matched?
       @invitation.group.group_users << GroupUser.new(user: current_user)
-      @invitation.destroy!
+      @invitation.claim!
       redirect_to @invitation.group, notice: 'Secret santa joined successfully!'
     elsif @invitation.group.matched?
       redirect_to root_path, alert: "That secret santa's already been matched up, so you can't join it."
@@ -31,7 +31,7 @@ class InvitationsController < ApplicationController
   end
 
   def destroy
-    @invitation.destroy!
+    @invitation.revoke!
 
     redirect_to @group, notice: "#{@invitation.email} is dead to us now."
   end

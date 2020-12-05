@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_27_015237) do
+ActiveRecord::Schema.define(version: 2020_12_05_005931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,7 +61,9 @@ ActiveRecord::Schema.define(version: 2020_11_27_015237) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "recipient_id"
     t.index ["group_id"], name: "index_group_users_on_group_id"
+    t.index ["recipient_id"], name: "index_group_users_on_recipient_id"
     t.index ["user_id"], name: "index_group_users_on_user_id"
   end
 
@@ -82,6 +84,7 @@ ActiveRecord::Schema.define(version: 2020_11_27_015237) do
     t.string "token"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "state"
     t.index ["group_id"], name: "index_invitations_on_group_id"
   end
 
@@ -103,5 +106,6 @@ ActiveRecord::Schema.define(version: 2020_11_27_015237) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
+  add_foreign_key "group_users", "users", column: "recipient_id"
   add_foreign_key "invitations", "groups"
 end

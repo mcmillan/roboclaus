@@ -46,9 +46,9 @@
       </div>
     </section>
 
-    <% if @group.invitations.none? && @group.users.one? %><div class="highlight-backdrop"></div><% end%>
+    <% if @group.invitations.sent.none? && @group.users.one? %><div class="highlight-backdrop"></div><% end%>
     <section class="section">
-      <% if @group.invitations.none? && @group.users.one? %>
+      <% if @group.invitations.sent.none? && @group.users.one? %>
         <div class="highlight">
           <div class="alert">
             <strong>Nicely done!</strong> We've set up your secret santa – now, let's invite the first person to take part.
@@ -75,12 +75,12 @@
         </div>
       </div>
 
-      <% if @group.invitations.none? && @group.users.one? %>
+      <% if @group.invitations.sent.none? && @group.users.one? %>
         </div>
       <% end %>
     </section>
 
-    <% if @group.invitations.any? %>
+    <% if @group.invitations.sent.any? %>
     <section class="section two-columns">
       <div>
         <h2 class="spaced-flex">Pending invitations<span>⏳</span></h2>
@@ -88,7 +88,7 @@
       </div>
 
       <div>
-        <% @group.invitations.each do |invitation| %>
+        <% @group.invitations.sent.each do |invitation| %>
           <div class="pane pane--compact pane--beige spaced-flex">
             <span>
               <strong><%= invitation.email %></strong>
