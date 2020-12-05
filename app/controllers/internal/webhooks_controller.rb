@@ -9,7 +9,9 @@ class Internal::WebhooksController < ActionController::API
         r.message body: '🎅 Welcome back to Roboclaus!'
       end
     elsif blocked
-      return render xml: Twilio::TwiML::MessagingResponse.new
+      return render xml: Twilio::TwiML::MessagingResponse.new do |r|
+        r.message body: "You've opted out of Roboclaus. Reply START to receive messages from us again."
+      end
     end
 
     if params[:Body].to_s.strip.downcase == 'stop'
