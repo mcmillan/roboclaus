@@ -1,4 +1,9 @@
 class Internal::WebhooksController < ActionController::API
+  http_basic_authenticate_with(
+    name: Rails.application.credentials.webhooks[:name],
+    password: Rails.application.credentials.webhooks[:password]
+  )
+
   def twilio
     blocked = BlockedPhoneNumber.exists?(phone_number: params[:From])
     body = params[:Body].to_s.strip.downcase
