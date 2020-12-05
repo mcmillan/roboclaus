@@ -7,6 +7,14 @@ Rails.application.routes.draw do
     root to: 'users#index'
   end
 
+  namespace :internal do
+    resources :webhooks, only: [] do
+      collection do
+        get :twilio
+      end
+    end
+  end
+
   authenticate :user, ->(u) { u.admin? } do
     mount Sidekiq::Web => '/admin/sidekiq'
   end
