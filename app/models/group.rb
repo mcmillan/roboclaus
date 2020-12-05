@@ -41,7 +41,7 @@ class Group < ApplicationRecord
   end
 
   def no_invitations?
-    invitations.none?
+    invitations.sent.none?
   end
 
   def at_least_two_users?
