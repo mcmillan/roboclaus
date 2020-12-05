@@ -12,7 +12,7 @@ class Internal::WebhooksController < ActionController::API
       return render xml: twiml
     elsif blocked
       twiml = Twilio::TwiML::MessagingResponse.new do |r|
-        r.message body: "You've opted out of Roboclaus. Reply START to receive messages from us again."
+        r.message body: "❌ You've opted out of Roboclaus. Reply START to receive messages from us again."
       end
 
       return render xml: twiml
@@ -22,14 +22,14 @@ class Internal::WebhooksController < ActionController::API
       BlockedPhoneNumber.create(phone_number: params[:From])
 
       twiml = Twilio::TwiML::MessagingResponse.new do |r|
-        r.message body: "You'll no longer be sent any messages by Roboclaus."
+        r.message body: "❌ You'll no longer be sent any messages by Roboclaus."
       end
 
       return render xml: twiml
     end
 
     twiml = Twilio::TwiML::MessagingResponse.new do |r|
-      r.message body: 'No longer feeling the whole Christmas thing? Reply STOP to this message.'
+      r.message body: '🌲 No longer feeling the whole Christmas thing? Reply STOP to this message.'
     end
 
     render xml: twiml
