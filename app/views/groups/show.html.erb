@@ -32,6 +32,19 @@
       <p>If you're not sure what to get your match, or if you need to ask them a question (like if they have any dietary requirements, or a long-term phobia of bees), email <%= mail_to "#{@group.slug}@secret.robocla.us" %> and I'll forward your message anonymously to <%= @recipient.name %>.</p>
     </section>
     <% end %>
+
+    <section class="section">
+      <h2 style="margin-bottom: 1rem;">Who's participating?</h2>
+      <div class="three-columns">
+        <% @group.users.each do |user| %>
+          <div class="pane pane--compact pane--beige" style="margin-bottom: 0; line-height: 22px;">
+            <strong><%= user.name %></strong>
+            <br />
+            <small><%= user.email %></small>
+          </div>
+        <% end %>
+      </div>
+    </section>
   <% else %>
     <section class="section">
       <h1><%= @group.name %>'s Secret Santa</h1>

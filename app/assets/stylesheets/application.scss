@@ -147,7 +147,8 @@ main {
 .three-columns {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 2rem;
+  column-gap: 2rem;
+  row-gap: 1rem;
 
   @include mobile {
     grid-template-columns: 1fr;
