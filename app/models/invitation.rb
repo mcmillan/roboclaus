@@ -6,7 +6,7 @@ class Invitation < ApplicationRecord
   validates :email, presence: true, format: /@/
 
   validate do
-    errors.add(:email, 'is already participating') if group&.users&.exists?(email: email)
+    errors.add(:email, 'is already participating') if new_record? && group&.users&.exists?(email: email)
 
     if email_changed? && group&.invitations&.sent&.where('lower(email) = ?', email.downcase)&.any?
       errors.add(:email, 'has already been taken')
