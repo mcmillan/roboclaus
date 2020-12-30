@@ -4,25 +4,33 @@
   </div>
   <div class="landing__content">
     <div class="pane">
-      <h1>Hello, I'm Roboclaus!</h1>
-      <p>
-        I'm a friendly robot who's here to help you remotely organise a <%= link_to 'secret santa', 'https://en.wikipedia.org/wiki/Secret_Santa', target: '_blank' %>.
-      </p>
+      <% if Season.christmas? %>
+        <h1>Hello, I'm Roboclaus!</h1>
+        <p>
+          I'm a friendly robot who's here to help you remotely organise a <%= link_to 'secret santa', 'https://en.wikipedia.org/wiki/Secret_Santa', target: '_blank' %>.
+        </p>
 
-      <div class="pane pane--compact pane--beige">
-        <h2>How it works</h2>
-        <ol>
-          <li>You tell me a bit about you, and how you want your secret santa to work</li>
-          <li>You give me the emails of all the folks who are participating</li>
-          <li>I'll email them and ask them to give me their home address</li>
-          <li>When you're ready, I'll match everyone up, and let everyone know who they're sending a present to, including that person's address</li>
-          <% if ENV['ANONYMOUS_MESSAGING_ENABLED'] %>
-            <li>If someone's stuck for ideas, they can email a question to me and I'll pass it on anonymously to their recipient</li>
-          <% end %>
-        </ol>
-      </div>
+        <div class="pane pane--compact pane--beige">
+          <h2>How it works</h2>
+          <ol>
+            <li>You tell me a bit about you, and how you want your secret santa to work</li>
+            <li>You give me the emails of all the folks who are participating</li>
+            <li>I'll email them and ask them to give me their home address</li>
+            <li>When you're ready, I'll match everyone up, and let everyone know who they're sending a present to, including that person's address</li>
+            <% if ENV['ANONYMOUS_MESSAGING_ENABLED'] %>
+              <li>If someone's stuck for ideas, they can email a question to me and I'll pass it on anonymously to their recipient</li>
+            <% end %>
+          </ol>
+        </div>
 
-      <%= link_to 'Get started', new_user_registration_path, class: 'button button--green' %>
+        <%= link_to 'Get started', new_user_registration_path, class: 'button button--green' %>
+      <% else %>
+        <h1>See you next year!</h1>
+
+        <p>I'm now closed for the year. Thanks for using me to arrange your secret santa, and I'll see you next December!</p>
+
+        <p style="margin-bottom: 0;">If you need anything before then, email <%= mail_to 'hohoho@robocla.us' %>.</p>
+      <% end %>
     </div>
   </div>
 </div>
