@@ -8,7 +8,7 @@ class LandingController < ApplicationController
   private
 
   def redirect_if_authenticated
-    return unless user_signed_in?
+    return unless user_signed_in? && Season.christmas?
 
     redirect_to groups_path
   end
