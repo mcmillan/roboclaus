@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   def redirect_if_out_of_season
     return if Season.christmas?
 
-    redirect_to root_url, warning: 'Roboclaus is done for the year. See you next December!'
+    redirect_to root_url, alert: 'Roboclaus is done for the year. See you next December!'
   end
 
   def configure_devise_parameter_sanitizer
