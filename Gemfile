@@ -64,7 +64,7 @@ gem "rack-canonical-host", "~> 1.0"
 
 gem "email_reply_parser", "~> 0.5.10"
 
-gem "bugsnag", "~> 6.20"
+gem "bugsnag", "~> 6.21"
 
 gem "administrate", "~> 0.16.0"
 
