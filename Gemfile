@@ -52,7 +52,7 @@ gem "friendly_id", "~> 5.4"
 
 gem "aasm", "~> 5.2"
 
-gem "after_commit_everywhere", "~> 0.1.5"
+gem "after_commit_everywhere", "~> 1.0.0"
 
 gem "postmark-rails", "~> 0.21.0"
 

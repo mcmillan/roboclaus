@@ -74,7 +74,7 @@ GEM
       momentjs-rails (~> 2.8)
       sassc-rails (~> 2.1)
       selectize-rails (~> 0.6)
-    after_commit_everywhere (0.1.5)
+    after_commit_everywhere (1.0.0)
       activerecord (>= 4.2)
     aws-eventstream (1.1.1)
     aws-partitions (1.453.0)
@@ -284,7 +284,7 @@ PLATFORMS
 DEPENDENCIES
   aasm (~> 5.2)
   administrate (~> 0.16.0)
-  after_commit_everywhere (~> 0.1.5)
+  after_commit_everywhere (~> 1.0.0)
   aws-sdk-s3 (~> 1.94)
   bootsnap (>= 1.4.2)
   bugsnag (~> 6.21)
