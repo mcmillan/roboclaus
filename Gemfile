@@ -50,7 +50,7 @@ gem "devise", "~> 4.8"
 
 gem "friendly_id", "~> 5.4"
 
-gem "aasm", "~> 5.1"
+gem "aasm", "~> 5.2"
 
 gem "after_commit_everywhere", "~> 0.1.5"
 
