@@ -58,7 +58,7 @@ gem "postmark-rails", "~> 0.21.0"
 
 gem "sidekiq", "~> 6.2"
 
-gem "aws-sdk-s3", "~> 1.94"
+gem "aws-sdk-s3", "~> 1.104"
 
 gem "rack-canonical-host", "~> 1.0"
 
