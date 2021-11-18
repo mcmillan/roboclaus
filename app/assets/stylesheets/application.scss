@@ -280,26 +280,26 @@ ol {
       }
     }
 
-    &::before {
-      content: " ";
-      border-top: 25px transparent solid;
-      border-right: 25px #fff solid;
-      border-bottom: 25px transparent solid;
-      position: absolute;
-      top: 200px;
-      left: -25px;
-      width: 0;
-      height: 0;
+    // &::before {
+    //   content: " ";
+    //   border-top: 25px transparent solid;
+    //   border-right: 25px #fff solid;
+    //   border-bottom: 25px transparent solid;
+    //   position: absolute;
+    //   top: 200px;
+    //   left: -25px;
+    //   width: 0;
+    //   height: 0;
 
-      @include mobile {
-        border-top: 25px #fff solid;
-        border-left: 25px transparent solid;
-        border-right: 25px transparent solid;
-        top: initial;
-        bottom: 0;
-        left: 50%;
-        transform: translate(-50%, 32px);
-      }
-    }
+    //   @include mobile {
+    //     border-top: 25px #fff solid;
+    //     border-left: 25px transparent solid;
+    //     border-right: 25px transparent solid;
+    //     top: initial;
+    //     bottom: 0;
+    //     left: 50%;
+    //     transform: translate(-50%, 32px);
+    //   }
+    // }
   }
 }
