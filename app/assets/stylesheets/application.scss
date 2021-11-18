@@ -222,18 +222,19 @@ ol {
   position: relative;
   z-index: 100;
   background-color: #fff;
-  box-shadow: 0 0 0 3rem #fff, 0 0 0 calc(3rem + 2px) $brown;
+  box-shadow: 0 0 0 3rem #fff, 0 0 0 calc(3rem + 2px) $brown,
+    0 5px 10px 3rem rgba(0, 0, 0, 0.2);
 }
 
 .highlight-backdrop {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 99;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(20px);
 }
 
 .landing {
