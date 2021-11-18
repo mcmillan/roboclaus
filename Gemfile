@@ -4,19 +4,19 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.4'
+gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 4.3'
+gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.4'
+gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.11'
+gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -46,26 +46,26 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "devise", "~> 4.8"
+gem "devise", "~> 4.7"
 
 gem "friendly_id", "~> 5.4"
 
-gem "aasm", "~> 5.2"
+gem "aasm", "~> 5.1"
 
 gem "after_commit_everywhere", "~> 0.1.5"
 
-gem "postmark-rails", "~> 0.21.0"
+gem "postmark-rails", "~> 0.20.0"
 
-gem "sidekiq", "~> 6.2"
+gem "sidekiq", "~> 6.1"
 
-gem "aws-sdk-s3", "~> 1.94"
+gem "aws-sdk-s3", "~> 1.85"
 
 gem "rack-canonical-host", "~> 1.0"
 
 gem "email_reply_parser", "~> 0.5.10"
 
-gem "bugsnag", "~> 6.21"
+gem "bugsnag", "~> 6.18"
 
-gem "administrate", "~> 0.16.0"
+gem "administrate", "~> 0.14.0"
 
 gem "twilio-ruby", "~> 5.44"
