@@ -108,6 +108,11 @@ body {
 main {
   width: 100%;
   max-width: 1024px;
+
+  > .alert {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 }
 
 .pane {
@@ -211,7 +216,14 @@ ol {
   &--error {
     background-color: $red;
     color: #fff;
-    transform: rotate(0.3deg);
+  }
+
+  ul {
+    list-style: disc;
+
+    li {
+      margin-left: 1rem;
+    }
   }
 
   @include mobile {
