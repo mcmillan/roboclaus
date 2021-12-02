@@ -68,4 +68,4 @@ gem "bugsnag", "~> 6.18"
 
 gem "administrate", "~> 0.14.0"
 
-gem "twilio-ruby", "~> 5.44"
+gem "twilio-ruby", "~> 5.61"
