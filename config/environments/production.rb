@@ -3,6 +3,9 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Prepare the ingress controller used to receive mail
+  config.action_mailbox.ingress = :postmark
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
